@@ -31,7 +31,7 @@ function Login() {
         //Login api call
 
         try {
-            const response = await axiosInstance.post("/login", {
+            const response = await axiosInstance.post("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/login", {
                 email: email,
                 password: password,
             });

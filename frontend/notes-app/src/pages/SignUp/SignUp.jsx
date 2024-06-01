@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../..//utils/axiosInstance'; // Import axiosInstance
-
-import Navbar from '../../components/Navbar/Navbar';
+import LoginNavbar from '../../components/Navbar/LoginNavbar';
 import PasswordInput from '../../Input/PasswordInput';
 import { validateEmail } from '../../utils/helper';
 
@@ -36,7 +35,7 @@ function SignUp() {
 
     // signUp API call
     try {
-      const response = await axiosInstance.post("/create-account", {
+      const response = await axiosInstance.post("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/create-account", {
         fullname: name,
         email: email,
         password: password,
@@ -67,7 +66,7 @@ function SignUp() {
 
   return (
     <>
-      <Navbar />
+    <LoginNavbar />
       <div className='flex items-center justify-center mt-20'>
         <div className='w-96 border rounded bg-white px-7 py-10'>
           <form onSubmit={handleSignUp}>

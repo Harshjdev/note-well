@@ -18,12 +18,12 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin: "*", // Allowing requests from all origins, you may want to restrict this in a production environment
+        origin: "*", // Allowing requests from all origins
     })
 );
 
 app.get("/", (req, res) => {
-    res.json({ data: "hello" }); // Fixed res.json({data: "hello"});
+    res.json({ data: "hello" }); 
 });
 
 
@@ -343,11 +343,10 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
 // });
 
 app.get("/search-notes/", authenticateToken, async (req, res) => {
-    const { user } = req; // Destructure req.user directly
-    // let { query } = req.query.title; // Extract query from req.query
+    const { user } = req; 
     const query = new RegExp(req.query.title,"i");
     try{
-        const notes = await Note.find({title: query}); // Assuming 'title' is the field you're searching against
+        const notes = await Note.find({title: query}); 
         const data = []; // Initialize an empty array to hold the found notes
         notes.forEach(note => {
             data.push(note); // Add each found note to the data array
