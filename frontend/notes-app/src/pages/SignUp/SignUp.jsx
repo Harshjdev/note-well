@@ -35,7 +35,7 @@ function SignUp() {
 
     // signUp API call
     try {
-      const response = await axiosInstance.post("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/create-account", {
+      const response = await axiosInstance.post("/create-account", {
         fullname: name,
         email: email,
         password: password,

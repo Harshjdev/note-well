@@ -13,8 +13,10 @@ const app = express();
 
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
+const path=require('path');
 
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname,'dist'))
 
 app.use(
     cors({

@@ -65,7 +65,7 @@ function Home() {
   // Get user info
   const getUserInfo = async () => {
     try {
-      const response = await axiosInstance.get("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/get-user");
+      const response = await axiosInstance.get("/get-user");
       if (response.data && response.data.user) {
         setUserInfo(response.data.user);
       }
@@ -77,7 +77,7 @@ function Home() {
   // Get all notes
   const getAllNotes = async () => {
     try {
-      const response = await axiosInstance.get("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/get-all-notes");
+      const response = await axiosInstance.get("/get-all-notes");
       if (response.data && response.data.notes) {
         setAllNotes(response.data.notes);
       }
@@ -92,7 +92,7 @@ function Home() {
     const accessToken = localStorage.getItem("token");
 
     try {
-      const response = await axiosInstance.delete(`https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/delete-note/${noteId}`, {
+      const response = await axiosInstance.delete(`/delete-note/${noteId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         }
@@ -116,7 +116,7 @@ function Home() {
   // Search
   const onSearchNote = async (query) => {
     try {
-      const response = await axiosInstance.get("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/search-notes", {
+      const response = await axiosInstance.get("/search-notes", {
         params: { title: query }, // Modify to send 'title' instead of 'query'
       });
   

@@ -13,7 +13,7 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose,showToastMessage })
   const addNewNote = async () => {
     const accessToken = localStorage.getItem("token"); // Get accessToken from localStorage
     try {
-      const response = await axiosInstance.post("https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/add-note", {
+      const response = await axiosInstance.post("/add-note", {
         title,
         content,
         tags,
@@ -40,7 +40,7 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose,showToastMessage })
     const accessToken = localStorage.getItem("token"); // Get accessToken from localStorage
 
     try {
-      const response = await axiosInstance.put(`https://note-well-backend-dtdg6t8rc-harshs-projects-03602f72.vercel.app/edit-note/${noteId}`, {
+      const response = await axiosInstance.put(`/edit-note/${noteId}`, {
         title,
         content,
         tags,
